@@ -197,7 +197,7 @@ function onKeyDown(keyDown) {
         case 82: // 'r'
         {
             let entries = [];
-            for (let j = 0; j < savedSearchResults.length; j++) {
+            for (let j = 0; j < 1; j++) {
                 let entry = {
                     simplified: savedSearchResults[j][0],
                     traditional: savedSearchResults[j][1],

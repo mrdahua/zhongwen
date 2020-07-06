@@ -72,6 +72,7 @@ function copyEntryForSaving(entry) {
     // don't save these atributes
     delete result.id;
     delete result.zhuyin;
+
     if (result.notes === '<i>Edit</i>') {
         delete result.notes;
     }
@@ -142,19 +143,8 @@ $(document).ready(function () {
         for (let i = 0; i < selected.length; i++) {
             let entry = selected[i];
             content += entry.simplified;
-            content += '\t';
-            content += entry.traditional;
-            content += '\t';
-            content += entry.pinyin;
-            content += '\t';
-            if (showZhuyin) {
-                content += entry.zhuyin;
-                content += '\t';
-            }
-            content += entry.definition;
-            content += '\t';
-            content += entry.notes.replace('<i>Edit</i>', '').replace(/[\r\n]/gm, ' ');
-            content += '\r\n';
+	    if (i+1 < selected.length)
+		content += ","
         }
 
         let saveBlob = new Blob([content], { "type": "text/plain" });
